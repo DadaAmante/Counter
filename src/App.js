@@ -1,29 +1,40 @@
 import { useState } from 'react';
+import caretIcon from "../src/assets/caret.png";
+import zeroIcon from "../src/assets/zero.png";
 import './App.css';
 
 function App() {
-  
+
   const [count, setCount] = useState(0);
 
-  function handleAdd(){
+  function handleAdd() {
     setCount(count + 1)
   }
-  function handleSub(){
+  function handleSub() {
     setCount(count - 1)
   }
-  function handleReset(){
+  function handleReset() {
     setCount(0)
   }
 
   return (
     <div className="App">
-      <button onClick={handleSub}>Sub</button>
+      <div className='container'>
+        <button onClick={handleSub}>
+          <img className='iconButton' src={caretIcon} alt="Subtract" />
+        </button>
         <div className='counterContainer'>
           <p>{count}</p>
         </div>
-        <button onClick={handleAdd}>Add</button>
-      <br />
-      <button onClick={handleReset}>Reset</button>
+        <button onClick={handleAdd}>
+          <img className='iconButton flip' src={caretIcon} alt="Add" />
+        </button>
+      </div>
+      <div className='reset-container'>
+        <button onClick={handleReset}>
+          <img className='iconButton' src={zeroIcon} alt="Reset" />
+        </button>
+      </div>
     </div>
   );
 }
